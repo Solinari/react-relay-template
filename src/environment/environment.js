@@ -7,7 +7,7 @@ import {
 
 const fetchQuery = (operation, variables) => {
     
-	return fetch('/graphql', {
+	return fetch('http://localhost:3001/graphql', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',

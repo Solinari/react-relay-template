@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import graphql from 'babel-plugin-relay/macro';
+// import graphql from 'babel-plugin-relay/macro';
+import { graphql, QueryRenderer } from 'react-relay';
+import environment from './environment/environment';
 
 function App() {
+	const query = graphql`
+	query AllVideosQuery {
+		videos {
+		  edges {
+			node {
+			  title 
+			}
+		  }
+		}
+	  }`;
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-          Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-          Learn React
-				</a>
-			</header>
-		</div>
+		<QueryRenderer 
+			environment={environment}
+			query={query}
+			variables={{}}
+			render={({error, props}) => {
+				if (error) {
+					return <div>Error!</div>;
+				}
+				if (!props) {
+					return <div>Loading...</div>;
+				}
+				return <div>User ID: {props.viewer.id}</div>;
+			}}
+		/>
 	);
 }
 
