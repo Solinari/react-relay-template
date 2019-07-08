@@ -15,6 +15,7 @@ function App() {
 		  }
 		}
 	  }`;
+	  
 	return (
 		<QueryRenderer 
 			environment={environment}
@@ -27,7 +28,7 @@ function App() {
 				if (!props) {
 					return <div>Loading...</div>;
 				}
-				return <div>User ID: {props.viewer.id}</div>;
+				return <div>User ID: {props.videos}</div>;
 			}}
 		/>
 	);
