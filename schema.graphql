@@ -1,0 +1,15 @@
+
+schema {
+    query: AllVideosQuery,
+}
+
+query AllVideosQuery {
+    videos: [Video],
+}
+
+type Video {
+    id: Int!,
+    title: String,
+    duration: Int,
+    watched: Boolean,
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 // import graphql from 'babel-plugin-relay/macro';
-import { graphql, QueryRenderer } from 'react-relay';
+import { QueryRenderer } from 'react-relay';
+import graphql from 'babel-plugin-relay/macro';
 import environment from './environment/environment';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 		  }
 		}
 	  }`;
-	  
+      
 	return (
 		<QueryRenderer 
 			environment={environment}
