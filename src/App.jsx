@@ -7,7 +7,7 @@ import environment from './environment/environment';
 
 function App() {
 	const query = graphql`
-	query AllVideosQuery {
+	query AppQuery {
 		videos {
 		  edges {
 			node {
@@ -29,7 +29,10 @@ function App() {
 				if (!props) {
 					return <div>Loading...</div>;
 				}
-				return <div>User ID: {props.videos}</div>;
+				props.videos.edges.map(node => {
+					<div>Video Title: {node.title}</div>;
+				});
+				
 			}}
 		/>
 	);
