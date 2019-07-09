@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import graphql from 'babel-plugin-relay/macro';
 import { QueryRenderer } from 'react-relay';
 import graphql from 'babel-plugin-relay/macro';
 import environment from './environment/environment';
@@ -29,9 +28,11 @@ function App() {
 				if (!props) {
 					return <div>Loading...</div>;
 				}
-				props.videos.edges.map(node => {
-					<div>Video Title: {node.title}</div>;
+				let titles = '';
+				props.videos.edges.map(edge => {
+					titles+=`| ${edge.node.title} |`;
 				});
+				return <div>{`Video Titles: ${titles}`}</div>;
 				
 			}}
 		/>
