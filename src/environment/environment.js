@@ -26,7 +26,7 @@ const fetchQuery = (operation, variables) => {
 
 const environment = new Environment({
 	network: Network.create(fetchQuery),
-	store: new Store( new RecordSource()),
+	store: new Store( new RecordSource() ),
 });
 
 export default environment;
