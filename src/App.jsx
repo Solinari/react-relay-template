@@ -10,7 +10,10 @@ function App() {
 		videos {
 		  edges {
 			node {
-			  title 
+			  id
+			  duration
+			  title
+			  watched
 			}
 		  }
 		}
@@ -23,16 +26,16 @@ function App() {
 			variables={{}}
 			render={({error, props}) => {
 				if (error) {
-					return <div>Error!</div>;
+					return <div className="App App-header">Error!</div>;
 				}
 				if (!props) {
-					return <div>Loading...</div>;
+					return <div className="App App-header">Loading...</div>;
 				}
 				let titles = '';
 				props.videos.edges.map(edge => {
 					titles+=`| ${edge.node.title} |`;
 				});
-				return <div>{`Video Titles: ${titles}`}</div>;
+				return <div className="App App-header">{`Video Titles: ${titles}`}</div>;
 				
 			}}
 		/>
